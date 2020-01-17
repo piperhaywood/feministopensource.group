@@ -8,3 +8,102 @@ html {
 *::before {
   box-sizing: inherit;
 }
+
+body {
+  font-family: "Barlow", sans-serif;
+  font-size: calc(3vw + 1vh + 0.5vmin);
+  font-weight: 200;
+  margin: 0;
+}
+
+a {
+  color: inherit;
+  text-decoration-thickness: 0.125rem;
+}
+
+a:hover,
+a:focus {
+  text-decoration: none;
+}
+
+.main {
+  color: white;
+  margin: 3vw 3.5vw 6vw;
+  position: relative;
+  z-index: 100;
+}
+
+.main > *:first-child {
+  margin-top: 0;
+}
+
+.main > *:last-child {
+  margin-bottom: 0;
+}
+
+.background {
+  background-color: black;
+  bottom: 0;
+  left: 0;
+  position: fixed;
+  right: 0;
+  top: 0;
+}
+
+.letter {
+  height: 100%;
+  mix-blend-mode: exclusion; // difference could also work
+  mix-blend-mode: lighten;
+  opacity: 0.3;
+  width: 100%;
+}
+
+.letter svg {
+  display: block;
+  filter: blur(5rem);
+  height: auto;
+  position: absolute;
+  width: 100%;
+}
+
+.letter--f svg {
+  left: 0;
+}
+
+.letter--o svg {
+  top: 25%;
+  @media (orientation: landscape) {
+    left: 25%;
+    top: 0;
+  }
+}
+
+.letter--s svg {
+  bottom: 25%;
+  right: 0;
+  @media (orientation: landscape) {
+    bottom: 0;
+    right: 25%;
+  }
+}
+
+.letter--g svg {
+  bottom: 0;
+  right: 0;
+}
+
+.letter--f path {
+  fill: red;
+}
+
+.letter--o path {
+  fill: orange;
+}
+
+.letter--s path {
+  fill: mediumblue;
+}
+
+.letter--g path {
+  fill: limegreen;
+}

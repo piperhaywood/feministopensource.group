@@ -69,7 +69,7 @@ gulp.task(
   "watch",
   gulp.parallel(["default", "browserSync"], function() {
     gulp.watch("./src/js/**/*.js", gulp.parallel("js"));
-    gulp.watch("./src/html/**/*.html", gulp.parallel("nunjucks"));
+    gulp.watch("./src/html/**/*", gulp.parallel("nunjucks"));
     gulp.watch("./src/css/**/*.scss", gulp.parallel("sass"));
   })
 );
