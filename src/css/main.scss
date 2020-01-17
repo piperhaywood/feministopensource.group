@@ -23,12 +23,26 @@ html {
   box-sizing: inherit;
 }
 
+:root {
+  font-size: 16px;
+  @media (min-width: 600px) {
+    font-size: 2.6vw;
+  }
+}
+
 body {
-  font-size: calc(3vw + 1vh + 0.5vmin);
+  background-color: black;
   font-family: "IBM Plex Mono", "Menlo", "DejaVu Sans Mono",
     "Bitstream Vera Sans Mono", Courier, monospace;
+  font-feature-settings: "ss01", "ss02", "frac", "zero";
+  font-size: 1rem;
+  line-height: 1.275;
   margin: 0;
   position: relative;
+}
+
+p {
+  margin-bottom: 1.5rem;
 }
 
 a {
@@ -43,7 +57,7 @@ a:focus {
 
 .main {
   color: white;
-  padding: 3vw 3.5vw 6vw;
+  padding: 1rem 1rem 1.5rem;
   position: relative;
   z-index: 100;
 }
@@ -57,10 +71,10 @@ a:focus {
 }
 
 .background {
-  background-color: black;
   bottom: 0;
+  filter: blur(calc(3vw + 3vh + 0.5vmin));
   left: 0;
-  position: absolute;
+  position: fixed;
   right: 0;
   top: 0;
 }
@@ -68,7 +82,6 @@ a:focus {
 .letter {
   height: 100%;
   mix-blend-mode: exclusion; // difference could also work
-  // mix-blend-mode: lighten;
   overflow: hidden;
   position: absolute;
   width: 100%;
@@ -76,7 +89,6 @@ a:focus {
 
 .letter svg {
   display: block;
-  filter: blur(calc(3vw + 3vh + 0.5vmin));
   height: auto;
   position: absolute;
   width: 100%;
