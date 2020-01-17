@@ -14,6 +14,7 @@ body {
   font-size: calc(3vw + 1vh + 0.5vmin);
   font-weight: 200;
   margin: 0;
+  position: relative;
 }
 
 a {
@@ -28,7 +29,7 @@ a:focus {
 
 .main {
   color: white;
-  margin: 3vw 3.5vw 6vw;
+  padding: 3vw 3.5vw 6vw;
   position: relative;
   z-index: 100;
 }
@@ -45,7 +46,7 @@ a:focus {
   background-color: black;
   bottom: 0;
   left: 0;
-  position: fixed;
+  position: absolute;
   right: 0;
   top: 0;
 }
@@ -53,57 +54,59 @@ a:focus {
 .letter {
   height: 100%;
   mix-blend-mode: exclusion; // difference could also work
-  mix-blend-mode: lighten;
-  opacity: 0.3;
+  // mix-blend-mode: lighten;
+  overflow: hidden;
+  position: absolute;
   width: 100%;
 }
 
 .letter svg {
   display: block;
-  filter: blur(5rem);
+  filter: blur(calc(3vw + 3vh + 0.5vmin));
   height: auto;
   position: absolute;
   width: 100%;
 }
 
-.letter--f svg {
-  left: 0;
+.letter--f {
+  opacity: 0.4;
+  svg {
+    left: -10%;
+  }
+  path {
+    fill: red;
+  }
 }
 
-.letter--o svg {
-  top: 25%;
-  @media (orientation: landscape) {
-    left: 25%;
+.letter--o {
+  opacity: 0.4;
+  svg {
+    right: -25%;
     top: 0;
   }
-}
-
-.letter--s svg {
-  bottom: 25%;
-  right: 0;
-  @media (orientation: landscape) {
-    bottom: 0;
-    right: 25%;
+  path {
+    fill: orange;
   }
 }
 
-.letter--g svg {
-  bottom: 0;
-  right: 0;
+.letter--s {
+  opacity: 0.4;
+  svg {
+    bottom: 0;
+    left: -25%;
+  }
+  path {
+    fill: mediumblue;
+  }
 }
 
-.letter--f path {
-  fill: red;
-}
-
-.letter--o path {
-  fill: orange;
-}
-
-.letter--s path {
-  fill: mediumblue;
-}
-
-.letter--g path {
-  fill: limegreen;
+.letter--g {
+  opacity: 0.3;
+  svg {
+    bottom: 0;
+    right: -10%;
+  }
+  path {
+    fill: limegreen;
+  }
 }
