@@ -1,20 +1,15 @@
-@font-face {
-  font-display: swap;
-  font-family: "IBM Plex Mono";
-  font-style: normal;
-  font-weight: 300;
-  src: local("IBM Plex Mono Light"), local("IBMPlexMono-Light"),
-    url("fonts/IBM-Plex-Mono/fonts/split/woff2/IBMPlexMono-Light.woff2")
-      format("woff2");
-  unicode-range: U+0000, U+000D, U+0020-007E, U+00A0-00A3, U+00A4-00FF, U+0131,
-    U+0152-0153, U+02C6, U+02DA, U+02DC, U+2013-2014, U+2018-201A, U+201C-201E,
-    U+2020-2022, U+2026, U+2030, U+2039-203A, U+2044, U+2074, U+20AC, U+2122,
-    U+2212, U+FB01-FB02;
-}
+$sm: 600px;
+$md: 950px;
+$lg: 1200px;
 
 html {
   box-sizing: border-box;
+  font-size: 14px;
+  min-height: 100vh;
   -webkit-text-size-adjust: 100%;
+  @media (min-width: $sm) {
+    font-size: 16px;
+  }
 }
 
 *,
@@ -23,56 +18,75 @@ html {
   box-sizing: inherit;
 }
 
-:root {
-  font-size: 16px;
-  @media (min-width: 600px) {
-    font-size: 2.6vw;
+body {
+  display: flex;
+  font-family: "Barlow", sans-serif;
+  font-size: 1rem;
+  hyphens: manual;
+  line-height: 1.5;
+  margin: 0;
+  min-height: 100vh;
+}
+
+.outer {
+  background-color: black;
+  display: flex;
+  position: relative;
+  width: 100%;
+}
+
+.inner {
+  background-image: linear-gradient(transparent 4%, rgba(255, 255, 255, 1) 4%);
+  background-size: 3rem 3rem;
+  padding: 3rem 0;
+  position: relative;
+  width: 100%;
+  z-index: 100;
+  @media (min-width: $sm) {
+    padding: 3rem 1rem 3.15rem;
+  }
+  @media (min-width: $md) {
+    padding: 3rem 2rem 3.15rem;
   }
 }
 
-body {
-  background-color: black;
-  font-family: "IBM Plex Mono", "Menlo", "DejaVu Sans Mono",
-    "Bitstream Vera Sans Mono", Courier, monospace;
-  font-feature-settings: "ss01", "ss02", "frac", "zero";
-  font-size: 1rem;
-  line-height: 1.275;
-  margin: 0;
-  position: relative;
+.content {
+  margin: 0 auto;
+  max-width: 95rem;
+  @media (min-width: $md) {
+    display: flex;
+  }
 }
 
-p {
-  margin-bottom: 1.5rem;
-}
-
-a {
-  color: inherit;
-  text-decoration-thickness: 0.125rem;
-}
-
-a:hover,
-a:focus {
-  text-decoration: none;
+.aside {
+  line-height: 3;
+  margin: 0 0 3rem;
+  max-width: 30rem;
+  padding: 0 1rem;
+  @media (min-width: $md) {
+    flex-shrink: 0;
+    margin: 9rem 0 3rem;
+    max-width: none;
+    min-width: 18rem;
+    width: 25%;
+  }
+  @media (min-width: $lg) {
+    margin: 12rem 0 3rem;
+  }
 }
 
 .main {
-  color: white;
-  padding: 1rem 1rem 1.5rem;
-  position: relative;
-  z-index: 100;
+  font-size: 2rem;
+  padding: 0 1rem;
 }
 
-.main > *:first-child {
-  margin-top: 0;
-}
-
-.main > *:last-child {
+.prose > *:last-child {
   margin-bottom: 0;
 }
 
 .background {
   bottom: 0;
-  filter: blur(calc(3vw + 3vh + 0.5vmin));
+  filter: blur(1.25rem);
   left: 0;
   position: fixed;
   right: 0;
@@ -95,7 +109,7 @@ a:focus {
 }
 
 .letter--f {
-  opacity: 0.4;
+  // opacity: 0.4;
   svg {
     left: -10%;
   }
@@ -105,7 +119,7 @@ a:focus {
 }
 
 .letter--o {
-  opacity: 0.4;
+  // opacity: 0.4;
   svg {
     right: -25%;
     top: 0;
@@ -116,7 +130,7 @@ a:focus {
 }
 
 .letter--s {
-  opacity: 0.4;
+  // opacity: 0.4;
   svg {
     bottom: 0;
     left: -25%;
@@ -127,7 +141,7 @@ a:focus {
 }
 
 .letter--g {
-  opacity: 0.3;
+  // opacity: 0.3;
   svg {
     bottom: 0;
     right: -10%;
@@ -135,4 +149,18 @@ a:focus {
   path {
     fill: limegreen;
   }
+}
+
+p {
+  margin-bottom: 3rem;
+  margin-top: 0;
+}
+
+a {
+  color: inherit;
+}
+
+a:hover,
+a:focus {
+  text-decoration: none;
 }
